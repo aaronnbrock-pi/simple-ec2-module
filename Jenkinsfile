@@ -2,6 +2,12 @@ pipeline {
   agent any
   stages {
     stage('Check Tag') {
+      when {
+        anyOf {
+          branch 'master';
+          changeRequest target: 'master';
+        }
+      }
       steps {
         sh '''# Fetch all tags
 git fetch --tags
