@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('Check Tag') {
       when {
-        changeRequest()
+        anyOf {
+          changeRequest();
+          branch 'master'
+        }
       }
       steps {
         println "env.CHANGE_ID: ${env.CHANGE_ID}"
