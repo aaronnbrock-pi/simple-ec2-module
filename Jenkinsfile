@@ -2,7 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Check Tag') {
-
+      when {
+        changeRequest()
+      }
       steps {
         println "env.CHANGE_ID: ${env.CHANGE_ID}"
 		println "env.CHANGE_URL: ${env.CHANGE_URL}"
