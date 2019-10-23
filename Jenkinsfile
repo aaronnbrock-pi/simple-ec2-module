@@ -3,10 +3,7 @@ pipeline {
   stages {
     stage('Check Tag') {
       when {
-        anyOf {
-          changeRequest ;
-          branch 'master';
-        }
+        changeRequest target: 'master'
       }
       steps {
         sh '''# Fetch all tags
