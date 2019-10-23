@@ -4,7 +4,7 @@ pipeline {
     stage('Check Tag') {
       when {
         anyOf {
-          changeRequest branch: 'master';
+          changeRequest ;
           branch 'master';
         }
       }
